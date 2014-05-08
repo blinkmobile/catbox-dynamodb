@@ -23,6 +23,10 @@ var internals = {
     id: 'getTestNotExisting',
     segment: 'unitTests'
   },
+  getTestNoSegmentID: {
+    id: 'getTestNotExisting',
+    segment: null
+  },
   setTestCallbackID: {
     id: 'setTestCallback',
     segment: 'unitTests'
@@ -266,7 +270,16 @@ Lab.experiment('Catbox-DynamoDB', {parallel: true}, function () {
       });
     });
 
-    // 'returns not found on missing segment'
+    Lab.test('returns not found on missing segment', function (done) {
+      var dynamo = new DynamoDB(internals.options);
+      dynamo.start(function () {
+        dynamo.get(internals.getTestNoSegmentID, function (err, data) {
+          Lab.expect(err).to.not.exist;
+          Lab.expect(data).to.not.exist;
+          done();
+        });
+      });
+    });
 
     Lab.test('passes a null item to the callback when the item doesn\'t exist', function (done) {
       var dynamo = new DynamoDB(internals.options);
