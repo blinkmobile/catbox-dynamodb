@@ -12,7 +12,7 @@
     "cache"
   ],
   "author": "Ben Barclay",
-  "license": "BSD",
+  "license": "BSD 3-Clause",
   "dependencies": {
     "hoek": "^2.1.0",
     "aws-sdk": "^2.0.0-rc.15"
