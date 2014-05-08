@@ -1,7 +1,7 @@
 Catbox-DynamoDB
 ===
 
-A Catbox external caching strategy
+A [Catbox](https://github.com/spumko/catbox) external caching strategy
 
 
 Usage
@@ -29,6 +29,10 @@ When the table is created it will need to have the Primary Key set to Hash and R
 
 If you do not set Hash to `'segment'` and Range to `'id'`, you will need to specify these in the options for the strategy to work correctly.
 
+You will also need to make sure that you have credentials in some place that the application can see them. For guidance, please see [this article](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html).
+
 Testing
 ---
+Note that running the test suite will actually run the tests against DynamoDB.
+
 `node test`

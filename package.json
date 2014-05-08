@@ -1,7 +1,7 @@
 {
   "name": "catbox-dynamodb",
   "version": "0.0.1",
-  "description": "A DynamoDB adapter for Catbox",
+  "description": "A DynamoDB external caching strategy for Catbox",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/lab -c"
