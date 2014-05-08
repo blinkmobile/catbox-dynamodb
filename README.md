@@ -31,4 +31,4 @@ If you do not set Hash to `'segment'` and Range to `'id'`, you will need to spec
 
 Testing
 ---
-`./node_modules/.bin/lab -c`
+`node test`
