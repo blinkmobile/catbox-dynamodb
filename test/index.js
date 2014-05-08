@@ -27,6 +27,10 @@ var internals = {
     id: 'getTestNotExisting',
     segment: null
   },
+  getTestKeysID: {
+    id: null,
+    segment: 'unitTests'
+  },
   setTestCallbackID: {
     id: 'setTestCallback',
     segment: 'unitTests'
@@ -292,6 +296,16 @@ Lab.experiment('Catbox-DynamoDB', {parallel: true}, function () {
       });
     });
 
+    Lab.test('passes an error to the callback when the database keys are incorrectly specified', function (done) {
+      var dynamo = new DynamoDB(internals.options);
+      dynamo.start(function () {
+        dynamo.get(internals.getTestKeysID, function (err, data) {
+          Lab.expect(err).to.exist;
+          done();
+        });
+      });
+    });
+
   });
 
   Lab.experiment('#set', function () {
@@ -428,6 +442,15 @@ Lab.experiment('Catbox-DynamoDB', {parallel: true}, function () {
     });
   });
 
+  Lab.test('passes an error to the callback when the database keys are incorrectly specified', function (done) {
+    var dynamo = new DynamoDB(internals.options);
+    dynamo.start(function () {
+      dynamo.drop(internals.getTestKeysID, function (err) {
+        Lab.expect(err).to.exist;
+        done();
+      });
+    });
+  });
 });
 
 Lab.experiment('Catbox', {parallel: true}, function () {
