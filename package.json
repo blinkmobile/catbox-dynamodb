@@ -14,7 +14,7 @@
   "author": "Ben Barclay",
   "license": "BSD 3-Clause",
   "dependencies": {
-    "hoek": "^2.1.0",
+    "hoek": "^5.0.3",
     "aws-sdk": "^2.394.0"
   },
   "devDependencies": {
